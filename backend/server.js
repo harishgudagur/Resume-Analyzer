@@ -10,14 +10,16 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://resume-analyzer-1-y24e.onrender.com",
+  methods: ["GET","POST","PUT","DELETE"],
+  credentials: true
+}));
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB error:", err.message));
 
-// Routes
 app.use("/auth", authRoutes);
 app.use("/resume", resumeRoutes);
 
