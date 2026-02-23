@@ -75,6 +75,7 @@ const Register = () => {
       <form
         className="auth-card"
         onSubmit={(e) => {
+          console.log("Form onSubmit triggered");
           e.preventDefault();
           handleSubmit(e);
         }}
