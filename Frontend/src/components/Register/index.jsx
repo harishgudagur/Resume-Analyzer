@@ -27,6 +27,7 @@ const Register = () => {
   }
 
   const handleSubmit = async (event) => {
+    console.log("REGISTER SUBMITTED");
     event.preventDefault();
     setLoading(true);
     setError("");
