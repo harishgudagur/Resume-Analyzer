@@ -24,7 +24,7 @@ const Login = () => {
     setLoading(true)
     setError("")
     // const url = "http://localhost:5000/auth/login";
-    const url = "https://resume-analyzer-udjw.onrender.com/auth/login";
+    const url = "https://resume-analyzer-backend-zico.onrender.com/auth/login";
     const userDetails = {
       email,
       password
@@ -33,10 +33,12 @@ const Login = () => {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(userDetails)
-    }
+      credentials: "include",
+      mode: "cors",
+      body: JSON.stringify(userDetails),
+    };
     const response = await fetch(url, options)
     const data = await response.json()
     console.log(data)

@@ -32,14 +32,18 @@ const Register = () => {
     setError("");
     setSuccess("");
 
-    const url = "https://resume-analyzer-udjw.onrender.com/auth/register";
+    const url = "https://resume-analyzer-backend-zico.onrender.com/auth/register";
     const userDetails = { name, email, password }
 
     const options = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      mode: "cors",
       body: JSON.stringify(userDetails),
-    }
+    };
 
     try {
       const response = await fetch(url, options)
