@@ -32,7 +32,7 @@ const Register = () => {
     setError("");
     setSuccess("");
 
-    const url = "http://localhost:5000/auth/register";
+    const url = "https://resume-analyzer-udjw.onrender.com/auth/register";
     const userDetails = { name, email, password }
 
     const options = {
