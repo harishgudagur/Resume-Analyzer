@@ -97,9 +97,9 @@ const Contact = () => {
         {/* Info strip */}
         <div className="contact-info-strip">
           {[
-            { icon: "✉", label: "Email", value: "hello@resumeats.com" },
+            { icon: "✉", label: "Email", value: "harishgudagur286@gmail.com" },
             { icon: "⏱", label: "Response Time", value: "Within 24 hours" },
-            { icon: "📍", label: "Location", value: "Hyderabad, India" },
+            { icon: "📍", label: "Location", value: "Haveri, Karnataka India" },
           ].map((item, i) => (
             <div className="info-item" key={i}>
               <span className="info-icon">{item.icon}</span>
