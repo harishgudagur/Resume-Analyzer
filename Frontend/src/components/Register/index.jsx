@@ -72,7 +72,13 @@ const Register = () => {
 
   return (
     <div className="auth-container">
-      <form className="auth-card" onSubmit={handleSubmit}>
+      <form
+        className="auth-card"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(e);
+        }}
+      >
         <h2>Register</h2>
 
         {error && <p className="error-text">{error}</p>}
