@@ -110,7 +110,9 @@ node server.js
 
 Backend runs on:
 
-http://localhost:5000
+https://resume-analyzer-backend-zico.onrender.com
+
+
 3. Start Frontend
 cd frontend
 npm install
