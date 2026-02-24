@@ -33,7 +33,7 @@ const Register = () => {
     setError("");
     setSuccess("");
 
-    const url = "https://resume-analyzer-backend-zico.onrender.com/auth/register";
+    const url = "http://localhost:5000
     const userDetails = { name, email, password }
 
     const options = {

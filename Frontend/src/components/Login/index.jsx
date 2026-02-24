@@ -24,7 +24,7 @@ const Login = () => {
     setLoading(true)
     setError("")
     // const url = "http://localhost:5000/auth/login";
-    const url = "https://resume-analyzer-backend-zico.onrender.com/auth/login";
+    const url = "http://localhost:5000/auth/login";
     const userDetails = {
       email,
       password
