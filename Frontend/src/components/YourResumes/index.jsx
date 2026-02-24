@@ -5,6 +5,7 @@ const BACKEND_URL = "https://resume-analyzer-backend-zico.onrender.com"
 
 const YourResumes = () => {
   const [selectedFile, setSelectedFile] = useState(null)
+  const [jobDescription, setJobDescription] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [analysisResult, setAnalysisResult] = useState(null)
@@ -18,6 +19,11 @@ const YourResumes = () => {
   const handleUploadAndAnalyze = async () => {
     if (!selectedFile) {
       setError("Please select a resume to upload.")
+      return
+    }
+
+    if (!jobDescription.trim()) {
+      setError("Please paste a Job Description.")
       return
     }
 
@@ -51,11 +57,10 @@ const YourResumes = () => {
 
       const data = await uploadResponse.json()
 
-      // STEP 2: Analyze Resume
+      // STEP 2: Analyze Resume with REAL Job Description
       const rawData = {
         resumeText: data.text,
-        jobDescription:
-          "ANYTHING YOU WANT! For best results, use a real job description from a role you're interested in.",
+        jobDescription,
       }
 
       const analyzeResponse = await fetch(`${BACKEND_URL}/resume/analyze`, {
@@ -86,6 +91,15 @@ const YourResumes = () => {
   return (
     <div className="resume-container">
       <h2>Upload Your Resume</h2>
+
+      {/* Job Description Input */}
+      <textarea
+        placeholder="Paste Job Description here..."
+        value={jobDescription}
+        onChange={(e) => setJobDescription(e.target.value)}
+        rows={6}
+        style={{ width: "100%", marginBottom: "10px" }}
+      />
 
       <input type="file" accept=".pdf" onChange={handleFileChange} />
 
